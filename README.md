@@ -1,7 +1,12 @@
+<div align="center">
+
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  /\_/\    A M A S C U T — T H E  C A T  C A L L E R      ( o . o )  Alpha   │
 │  > ^ <                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
+
+</div>
+
 
 
 Inspired from BetterAOD, a tool to help make the Amascut fight a little
