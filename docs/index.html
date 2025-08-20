@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cat Caller</title>
+  <style>
+    :root{
+      --box-width: 320px;
+      --box-height: 110px;
+      --bg: #111827;
+      --border: #1f2937;
+      --text: #e6eaf2;
+      --radius: 10px;
+      --pad: 8px;
+    }
+    html, body { height:100%; margin:0; overflow:hidden; background:#0d1117; color:var(--text); font-family:Consolas, monospace; }
+    #wrap { margin:8px; }
+    #output {
+      width: var(--box-width);
+      height: var(--box-height);
+      padding: var(--pad);
+      box-sizing: border-box;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      overflow: hidden;
+      -ms-overflow-style: none; scrollbar-width: none;
+    }
+    #output::-webkit-scrollbar { display: none; }
+    #ctrl {
+      width: var(--box-width);
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 6px; user-select: none;
+      font-size: 12px; color: #9aa3b2;
+    }
+    button.icon {
+      background: #0f172a; color:#cbd5e1; border:1px solid #1f2937;
+      border-radius: 8px; padding: 4px 8px; cursor: pointer;
+    }
+    button.icon.active { color:#10b981; border-color:#064e3b; }
+    button.icon.muted  { color:#ef4444; border-color:#7f1d1d; }
+    #ttsVol { flex: 1; appearance: none; height: 4px; border-radius: 9999px; background: #243041; outline: none; }
+    #ttsVol::-webkit-slider-thumb { appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #6aa7ff; cursor: pointer; }
+    #ttsVol::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #6aa7ff; cursor: pointer; border: 0; }
+    #volPct { width: 34px; text-align: right; }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="output"></div>
+
+    <div id="ctrl">
+      <button id="btnMute" class="icon" title="Toggle TTS mute">🔊</button>
+      <span id="volPct">100%</span>
+      <input id="ttsVol" type="range" min="0" max="100" value="100" step="1" />
+      <button id="btnOverlay" class="icon active" title="Toggle overlay">OVR</button>
+      <!-- NEW: Base mode toggle (same look as OVR) -->
+      <button id="btnBase" class="icon" title="Toggle base mechanic set">BASE</button>
+    </div>
+  </div>
+
+  <!-- point to your real bundle -->
+  <script src="./main.js"></script>
+
+  <!-- Keep only last 3 lines and snap to bottom -->
+  <script>
+    (function () {
+      const box = document.getElementById("output");
+      if (!box) return;
+      const MAX_LINES = 3;
+      const trim = () => { while (box.childElementCount > MAX_LINES) box.removeChild(box.firstElementChild); };
+      const snap = () => { box.scrollTop = box.scrollHeight; };
+      new MutationObserver(muts => {
+        for (const m of muts) if (m.type === "childList" && m.addedNodes.length) { trim(); requestAnimationFrame(snap); break; }
+      }).observe(box, { childList: true });
+      trim(); snap();
+    })();
+  </script>
+</body>
+</html>
