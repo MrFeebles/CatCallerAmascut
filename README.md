@@ -7,6 +7,9 @@
 └────────────────────────────────────────────────────────────────────────────┘
 > Inspired by BetterAOD — a tool to help make the Amascut fight a little more straightforward.
 
+Manual install: https://mrfeebles.github.io/CatCallerAmascut/index.html
+Quick isntall: alt1://addapp/https://mrfeebles.github.io/CatCallerAmascut/index.html
+
 **Notes**
 - Button “NA” currently does nothing.
 - Button “Base” toggles extra prompts helpful for learning.
