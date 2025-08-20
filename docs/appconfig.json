@@ -1,18 +1,15 @@
 {
-  "appname": "amascut - cat caller",
-  "description": "inspired by betteraod, but for amascut",
+  "appname": "Amascut - Cat Caller",
+  "description": "Inspired by BetterAOD, but for Amascut",
   "appurl": "index.html",
-  "icon": "icon.png",
-
+  "configurl": "appconfig.json",
+  "iconurl": "icon.png",
   "defaultwidth": 268,
   "defaultheight": 443,
   "minwidth": 50,
   "minheight": 50,
   "maxwidth": 1000,
   "maxheight": 1000,
-
-  "requesthandlers": [],
-  "activators": [],
-  "permissions": ["pixel", "overlay"],
+  "permissions": "pixel,overlay",
   "version": "1.0.0"
 }
