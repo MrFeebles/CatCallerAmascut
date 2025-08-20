@@ -57,19 +57,13 @@
       <span id="volPct">100%</span>
       <input id="ttsVol" type="range" min="0" max="100" value="100" step="1" />
       <button id="btnOverlay" class="icon active" title="Toggle overlay">OVR</button>
+      <!-- NEW: Base mode toggle (same look as OVR) -->
       <button id="btnBase" class="icon" title="Toggle base mechanic set">BASE</button>
     </div>
   </div>
 
-  <!-- Tell Alt1 this page has an appconfig next to it -->
-  <script>
-    if (window.alt1 && alt1.identifyAppUrl) {
-      alt1.identifyAppUrl("appconfig.json"); // same folder as this index.html
-    }
-  </script>
-
-  <!-- Your bundle (cache-busted) -->
-  <script src="./main.js?v=3"></script>
+  <!-- point to your real bundle -->
+  <script src="./main.js"></script>
 
   <!-- Keep only last 3 lines and snap to bottom -->
   <script>
