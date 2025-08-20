@@ -4020,53 +4020,145 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_alt1_base__;
 
 /***/ }),
 
-/***/ "./. sync recursive":
-/*!*****************!*\
-  !*** ././ sync ***!
-  \*****************/
+/***/ "canvas":
+/*!*************************!*\
+  !*** external "canvas" ***!
+  \*************************/
 /***/ ((module) => {
 
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
-}
-webpackEmptyContext.keys = () => ([]);
-webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = "./. sync recursive";
-module.exports = webpackEmptyContext;
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_canvas__ === 'undefined') { var e = new Error("Cannot find module 'canvas'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_canvas__;
 
 /***/ }),
 
-/***/ "./index.ts":
+/***/ "electron/common":
+/*!**********************************!*\
+  !*** external "electron/common" ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_electron_common__ === 'undefined') { var e = new Error("Cannot find module 'electron/common'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_electron_common__;
+
+/***/ }),
+
+/***/ "sharp":
+/*!************************!*\
+  !*** external "sharp" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+if(typeof __WEBPACK_EXTERNAL_MODULE_sharp__ === 'undefined') { var e = new Error("Cannot find module 'sharp'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_sharp__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alt1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alt1 */ "../node_modules/alt1/dist/base/index.js");
 /* harmony import */ var alt1__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alt1__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var alt1_chatbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alt1/chatbox */ "../node_modules/alt1/dist/chatbox/index.js");
 /* harmony import */ var alt1_chatbox__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(alt1_chatbox__WEBPACK_IMPORTED_MODULE_1__);
 // =========================================================
-// Cat Caller — index.ts (BASE filter hardened + new Tear mechanic)
+// Cat Caller — index.ts (capture + read loop wired up)
 // =========================================================
 var _a, _b, _c, _d;
 
 
 
+// ---------- Debug ----------
 function dbg(msg) {
     var el = document.getElementById("output");
     var line = document.createElement("div");
     line.style.color = "#9ca3af";
     line.textContent = msg;
     el === null || el === void 0 ? void 0 : el.appendChild(line);
-    console.log("[CatCaller]", msg);
+    try {
+        console.log("[CatCaller]", msg);
+    }
+    catch (_a) { }
 }
 function quickDiagnostics() {
-    var _a, _b;
     var a = window.alt1;
     dbg("Alt1 present: ".concat(!!a));
     if (!a) {
@@ -4076,26 +4168,15 @@ function quickDiagnostics() {
     try {
         dbg("Alt1 perms \u2192 pixel:".concat(a.permissionPixel, " overlay:").concat(a.permissionOverlay));
     }
-    catch (_c) { }
-    // Chatbox sanity check
+    catch (_a) { }
+    // Minimal check that ChatBoxReader constructible
     try {
-        var ChatBoxReader_1 = ( false || __webpack_require__("./. sync recursive") === void 0 ? void 0 : __webpack_require__.c)
-            ? (_a = (__webpack_require__(/*! alt1/chatbox */ "../node_modules/alt1/dist/chatbox/index.js")["default"])) !== null && _a !== void 0 ? _a : __webpack_require__(/*! alt1/chatbox */ "../node_modules/alt1/dist/chatbox/index.js")
-            : (_b = window.ChatBoxReader) !== null && _b !== void 0 ? _b : null;
-        // if you already imported ChatBoxReader at top, just use that:
-        // const r = new ChatBoxReader();
-        // (r as any).readargs = { colors: [] };  // your app already sets this later
-        // minimal check using your existing import:
-        var r = null;
-        try {
-            r = new ChatBoxReader_1(); // you already import this at the top
-        }
-        catch (_d) { }
+        var r = new (alt1_chatbox__WEBPACK_IMPORTED_MODULE_1___default())();
         dbg("Chat reader created: ".concat(!!r));
-        dbg("Chat reader class available: ".concat(!!r));
+        dbg("Chat reader class available: ".concat(true));
     }
     catch (e) {
-        dbg("Chat reader load error: " + (e === null || e === void 0 ? void 0 : e.message));
+        dbg("Chat reader load error: " + ((e === null || e === void 0 ? void 0 : e.message) || e));
     }
 }
 window.addEventListener("load", function () { return setTimeout(quickDiagnostics, 300); });
@@ -4127,8 +4208,9 @@ function appendLine(chunks) {
     el.appendChild(row);
     while (el.childElementCount > SHOW_LAST_N)
         el.removeChild(el.firstElementChild);
+    el.scrollTop = el.scrollHeight;
 }
-// ---------- Alt1 identify (no overlay calls yet) ----------
+// ---------- Alt1 identify (no overlay calls) ----------
 var alt1 = window.alt1;
 function identifyApp() {
     var _a;
@@ -4199,7 +4281,7 @@ function setMuteUI(muted) {
 // ---------- Controls (OVR visual, BASE switching) ----------
 var BASE_ENABLED = ((_d = localStorage.getItem("baseEnabled")) !== null && _d !== void 0 ? _d : "0") === "1"; // default OFF
 function setupControlsUI() {
-    var btnOverlay = document.getElementById("btnOverlay"); // visual only
+    var btnOverlay = document.getElementById("btnOverlay");
     var btnBase = document.getElementById("btnBase");
     var btnMute = document.getElementById("btnMute");
     var slider = document.getElementById("ttsVol");
@@ -4254,7 +4336,6 @@ function delayedFire(text, color, delayMs) {
     setTimeout(function () { return fire({ text: text, color: color }); }, delayMs);
 }
 // ---------- Mechanics ----------
-// FULL list (includes Tear-logic below)
 var FULL_M = [
     { trigger: /Amascut, the Devourer:\s*How close it came to becoming a reality/i,
         response: { text: "You have entered the cat cauldron", color: "yellow" } },
@@ -4267,13 +4348,11 @@ var FULL_M = [
         response: [{ text: "melee", color: "red" }, { text: " , range", color: "green" }, { text: " , magic", color: "blue" }] },
     { trigger: /Amascut, the Devourer:\s*Grovel/i,
         response: [{ text: "Magic", color: "blue" }, { text: " , melee", color: "red" }, { text: " , range", color: "green" }] },
-    // NEW multi-stage timing:
-    //  +8s  -> "Bend the knee coming, Immortality" (yellow)
-    // +25s  -> "Barricade" (yellow)
+    // NEW staged timing for "Tear them apart"
     { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
         custom: function () {
-            delayedFire("Bend the knee coming, Immortality", "yellow", 8000);
-            delayedFire("Barricade", "yellow", 25500);
+            delayedFire("Bend the knee coming, Immortality", "yellow", 600);
+            delayedFire("Barricade", "yellow", 22200);
         } },
     { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
     { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
@@ -4290,7 +4369,7 @@ var FULL_M = [
         response: { text: "Bottom Right", color: "purple" } },
     { trigger: /Amascut, the Devourer:\s*Scabaras/i, response: { text: "Top Left", color: "blue" } },
 ];
-// CORE subset (used when BASE is OFF) — intentionally omits "Tear them apart"
+// ---------- CORE Mechs ----------
 var CORE_M = [
     { trigger: /Amascut, the Devourer:\s*How close it came to becoming a reality/i,
         response: { text: "You have entered the cat cauldron", color: "yellow" } },
@@ -4298,9 +4377,7 @@ var CORE_M = [
     { trigger: /You eat the kebab/i, response: { text: "Feebles enfeebles you", color: "white" } },
     { trigger: /Yep\s*-\s*it's a ball made of snow\.?/i, response: { text: "Cyrus melts a little...", color: "white" } },
     { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
-        custom: function () {
-            delayedFire("Barricade", "yellow", 28000);
-        } },
+        custom: function () { delayedFire("Barricade", "yellow", 22200); } },
     { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
     { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
     { trigger: /Amascut, the Devourer:\s*Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
@@ -4343,6 +4420,7 @@ var chatRect = null;
 function initReader() {
     reader = new (alt1_chatbox__WEBPACK_IMPORTED_MODULE_1___default())();
     reader.readargs = { colors: [] };
+    // Seed colors (white + bluish + mint + green)
     var seed = [
         [255, 255, 255], [127, 169, 255], [69, 131, 145], [153, 255, 153],
     ];
@@ -4362,8 +4440,9 @@ function initReader() {
         var _a = seed_1[_i], r = _a[0], g = _a[1], b = _a[2];
         for (var _b = 0, _c = add(r, g, b); _b < _c.length; _b++) {
             var p = _c[_b];
-            if (!reader.readargs.colors.includes(p))
-                reader.readargs.colors.push(p);
+            var arr = reader.readargs.colors;
+            if (!arr.includes(p))
+                arr.push(p);
         }
     }
 }
@@ -4377,28 +4456,39 @@ function extractRect(res) {
     var h = (_q = (_p = r.h) !== null && _p !== void 0 ? _p : r.height) !== null && _q !== void 0 ? _q : (((_r = r.bottom) !== null && _r !== void 0 ? _r : 0) - ((_s = r.top) !== null && _s !== void 0 ? _s : 0));
     return (w > 0 && h > 0) ? { x: x, y: y, w: w, h: h } : null;
 }
+// ---------- Capture helper ----------
+function captureFullRs() {
+    var _a, _b, _c, _d, _e;
+    // Works with either a1lib or alt1 capture
+    return (_e = (_c = (_b = (_a = alt1__WEBPACK_IMPORTED_MODULE_0__).captureHoldFullRs) === null || _b === void 0 ? void 0 : _b.call(_a)) !== null && _c !== void 0 ? _c : (_d = alt1 === null || alt1 === void 0 ? void 0 : alt1.captureHoldFullRs) === null || _d === void 0 ? void 0 : _d.call(alt1)) !== null && _e !== void 0 ? _e : null;
+}
 // ---------- Poll/Fire ----------
 function tick() {
     var _a;
     if (!reader)
         return;
+    // Wait for permission
+    if (!(alt1 === null || alt1 === void 0 ? void 0 : alt1.permissionPixel))
+        return;
+    var img = captureFullRs();
+    if (!img)
+        return;
     if (!foundChat) {
         try {
-            var res = reader.find();
+            var res = reader.find(img); // pass image
             if (res) {
                 foundChat = true;
                 chatRect = extractRect(res);
             }
         }
         catch (_b) { }
-        return;
+        return; // next tick will read text
     }
     var prim = [];
     try {
-        prim = reader.read() || [];
+        prim = reader.read(img) || [];
     }
-    catch (_c) { }
-    // *** BASE filtering hardened here ***
+    catch (_c) { } // pass image
     var ACTIVE = BASE_ENABLED ? FULL_M : CORE_M;
     var _loop_1 = function (l) {
         var raw = String((l === null || l === void 0 ? void 0 : l.text) || "").trim();
@@ -4413,9 +4503,8 @@ function tick() {
             var run = function () {
                 scheduledPair.delete(key);
                 rememberPair(key);
-                if (mech.custom) {
-                    mech.custom(); // schedule custom timers
-                }
+                if (mech.custom)
+                    mech.custom();
                 if (mech.response) {
                     fire(mech.response);
                     if (mech.repeat && mech.repeat > 0)
@@ -4457,128 +4546,8 @@ function main() {
 }
 window.addEventListener("load", main);
 
+})();
 
-/***/ }),
-
-/***/ "canvas":
-/*!*************************!*\
-  !*** external "canvas" ***!
-  \*************************/
-/***/ ((module) => {
-
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_canvas__ === 'undefined') { var e = new Error("Cannot find module 'canvas'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_canvas__;
-
-/***/ }),
-
-/***/ "electron/common":
-/*!**********************************!*\
-  !*** external "electron/common" ***!
-  \**********************************/
-/***/ ((module) => {
-
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_electron_common__ === 'undefined') { var e = new Error("Cannot find module 'electron/common'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_electron_common__;
-
-/***/ }),
-
-/***/ "sharp":
-/*!************************!*\
-  !*** external "sharp" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-if(typeof __WEBPACK_EXTERNAL_MODULE_sharp__ === 'undefined') { var e = new Error("Cannot find module 'sharp'"); e.code = 'MODULE_NOT_FOUND'; throw e; }
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_sharp__;
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = __webpack_module_cache__;
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// module cache are used so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__("./index.ts");
-/******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
