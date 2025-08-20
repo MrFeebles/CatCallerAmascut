@@ -4335,63 +4335,83 @@ function fire(resp) { appendLine(resp); speak(resp); }
 function delayedFire(text, color, delayMs) {
     setTimeout(function () { return fire({ text: text, color: color }); }, delayMs);
 }
-// ---------- Mechanics ----------
+// ================================= BASE Mechanics ================================= 
 var FULL_M = [
+    //Check-list / Debug Phrases
     { trigger: /Amascut, the Devourer:\s*How close it came to becoming a reality/i,
         response: { text: "You have entered the cat cauldron", color: "yellow" } },
+    { trigger: /Hazelmere's long lost signet ring./i, response: { text: "Arc blesses you with the drops of his family", color: "white" } },
     { trigger: /You eat the rocktail/i, response: { text: "Sea food again...", color: "white" } },
     { trigger: /You eat the kebab/i, response: { text: "Feebles enfeebles you", color: "white" } },
     { trigger: /Yep\s*-\s*it's a ball made of snow\.?/i, response: { text: "Cyrus melts a little...", color: "white" } },
+    // Triple Attack Calls
     { trigger: /Amascut, the Devourer:\s*Weak/i,
         response: [{ text: "range", color: "green" }, { text: " , magic", color: "blue" }, { text: " , melee", color: "red" }] },
     { trigger: /Amascut, the Devourer:\s*Pathetic/i,
         response: [{ text: "melee", color: "red" }, { text: " , range", color: "green" }, { text: " , magic", color: "blue" }] },
     { trigger: /Amascut, the Devourer:\s*Grovel/i,
         response: [{ text: "Magic", color: "blue" }, { text: " , melee", color: "red" }, { text: " , range", color: "green" }] },
-    // NEW staged timing for "Tear them apart"
+    // Bend The Knee - Stun Scarabs
     { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
         custom: function () {
             delayedFire("Bend the knee coming, Immortality", "yellow", 600);
             delayedFire("Barricade", "yellow", 16500);
         } },
-    { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
-    { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
-    { trigger: /Amascut, the Devourer:\s*Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
-    { trigger: /Amascut, the Devourer:\s*Tumeken's heart, delivered to me by these/i,
+    // Screen Color Prayer
+    { trigger: /All strength withers/i, response: { text: "Melee prayer", color: "red" } },
+    { trigger: /I will not suffer/i, response: { text: "Range prayer", color: "green" } },
+    { trigger: /Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
+    // P5
+    { trigger: /Tumeken's heart, delivered to me by these/i,
         response: { text: "Green scarabs, Barricade", color: "yellow" }, delay: 7000 },
-    { trigger: /Amascut, the Devourer:\s*Your light will be snuffed out, once and for all/i,
+    { trigger: /Your light will be snuffed out/i,
         response: { text: "Greens Lines", color: "yellow" } },
-    { trigger: /Amascut, the Devourer:\s*I WILL NOT BE SUBJUGATED BY A MORTAL!/i,
+    // P6 Cats
+    { trigger: /I WILL NOT BE SUBJUGATED BY A MORTAL/i,
         response: [{ text: "Devotion", color: "yellow" }, { text: " , Magic prayer", color: "blue" }] },
-    { trigger: /Amascut, the Devourer:\s*I am sorry, Apmeken\./i, response: { text: "Top Left", color: "red" } },
-    { trigger: /Amascut, the Devourer:\s*Forgive me Het\./i, response: { text: "Bottom Left", color: "gray" } },
-    { trigger: /Amascut, the Devourer:\s*Crondis\.\.\.\s*It should have never come to this/i,
+    // P7 Pillar Calls
+    { trigger: /I am sorry,\s*Apmeken\./i,
+        response: { text: "Top Left", color: "red" } },
+    { trigger: /Forgive me,\s*Het\./i,
+        response: { text: "Bottom Left", color: "gray" } },
+    { trigger: /Crondis(?:\.{3,}|…)\s*It should have never come to this\./i,
         response: { text: "Bottom Right", color: "purple" } },
-    { trigger: /Amascut, the Devourer:\s*Scabaras/i, response: { text: "Top Left", color: "blue" } },
+    { trigger: /Scabaras(?:\.{3,}|…)/i,
+        response: { text: "Top Right", color: "blue" } },
 ];
-// ---------- CORE Mechs ----------
+// ================================= DPS Mechanics =================================
 var CORE_M = [
-    { trigger: /Amascut, the Devourer:\s*How close it came to becoming a reality/i,
+    //Check-list / Debug Phrases
+    { trigger: /How close it came to becoming a reality/i,
         response: { text: "You have entered the cat cauldron", color: "yellow" } },
+    { trigger: /Hazelmere's long lost signet ring./i, response: { text: "Arc blesses you with the drops of his family", color: "white" } },
     { trigger: /You eat the rocktail/i, response: { text: "Sea food again...", color: "white" } },
     { trigger: /You eat the kebab/i, response: { text: "Feebles enfeebles you", color: "white" } },
     { trigger: /Yep\s*-\s*it's a ball made of snow\.?/i, response: { text: "Cyrus melts a little...", color: "white" } },
-    { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
+    // Bend The Knee - Stun Scarabs
+    { trigger: /Tear them apart/i,
         custom: function () { delayedFire("Barricade", "yellow", 16500); } },
-    { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
-    { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
-    { trigger: /Amascut, the Devourer:\s*Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
-    { trigger: /Amascut, the Devourer:\s*Tumeken's heart, delivered to me by these/i,
+    // Screen Color Prayer
+    { trigger: /All strength withers/i, response: { text: "Melee prayer", color: "red" } },
+    { trigger: /I will not suffer/i, response: { text: "Range prayer", color: "green" } },
+    { trigger: /Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
+    // P5
+    { trigger: /Tumeken\.s heart, delivered to me by these/i,
         response: { text: "Green scarabs, Barricade", color: "yellow" }, delay: 7000 },
-    { trigger: /Amascut, the Devourer:\s*Your light will be snuffed out, once and for all/i,
+    { trigger: /Your light will be snuffed out/i,
         response: { text: "Greens Lines", color: "yellow" } },
-    { trigger: /Amascut, the Devourer:\s*I WILL NOT BE SUBJUGATED BY A MORTAL!/i,
+    // P6 Cats
+    { trigger: /I WILL NOT BE SUBJUGATED BY A MORTAL/i,
         response: [{ text: "Devotion", color: "yellow" }, { text: " , Magic prayer", color: "blue" }] },
-    { trigger: /Amascut, the Devourer:\s*I am sorry, Apmeken\./i, response: { text: "Top Left", color: "red" } },
-    { trigger: /Amascut, the Devourer:\s*Forgive me Het\./i, response: { text: "Bottom Left", color: "gray" } },
-    { trigger: /Amascut, the Devourer:\s*Crondis\.\.\.\s*It should have never come to this/i,
+    // P7 Pillar Calls
+    { trigger: /I am sorry,\s*Apmeken\./i,
+        response: { text: "Top Left", color: "red" } },
+    { trigger: /Forgive me,\s*Het\./i,
+        response: { text: "Bottom Left", color: "gray" } },
+    { trigger: /Crondis(?:\.{3,}|…)\s*It should have never come to this\./i,
         response: { text: "Bottom Right", color: "purple" } },
-    { trigger: /Amascut, the Devourer:\s*Scabaras/i, response: { text: "Top Left", color: "blue" } },
+    { trigger: /Scabaras(?:\.{3,}|…)/i,
+        response: { text: "Top Right", color: "blue" } },
 ];
 // ---------- De-dupe ----------
 var TS_RE = /^\s*\[(\d{2}):(\d{2})(?::(\d{2}))?\]\s*/;
