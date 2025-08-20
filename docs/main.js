@@ -4352,7 +4352,7 @@ var FULL_M = [
     { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
         custom: function () {
             delayedFire("Bend the knee coming, Immortality", "yellow", 600);
-            delayedFire("Barricade", "yellow", 22200);
+            delayedFire("Barricade", "yellow", 16500);
         } },
     { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
     { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
@@ -4377,7 +4377,7 @@ var CORE_M = [
     { trigger: /You eat the kebab/i, response: { text: "Feebles enfeebles you", color: "white" } },
     { trigger: /Yep\s*-\s*it's a ball made of snow\.?/i, response: { text: "Cyrus melts a little...", color: "white" } },
     { trigger: /Amascut, the Devourer:\s*Tear them apart/i,
-        custom: function () { delayedFire("Barricade", "yellow", 22200); } },
+        custom: function () { delayedFire("Barricade", "yellow", 16500); } },
     { trigger: /Amascut, the Devourer:\s*All strength withers/i, response: { text: "Melee prayer", color: "red" } },
     { trigger: /Amascut, the Devourer:\s*I will not suffer/i, response: { text: "Range prayer", color: "green" } },
     { trigger: /Amascut, the Devourer:\s*Your soul is weak/i, response: { text: "Magic prayer", color: "blue" } },
