@@ -1,9 +1,9 @@
 {
   "appname": "Amascut - Cat Caller",
   "description": "Inspired by BetterAOD, but for Amascut",
-  "appurl": "index.html",
-  "configurl": "appconfig.json",
-  "iconurl": "icon.png",
+  "appurl": "https://mrfeebles.github.io/CatCallerAmascut/index.html",
+  "configurl": "https://mrfeebles.github.io/CatCallerAmascut/appconfig.json",
+  "iconurl": "https://mrfeebles.github.io/CatCallerAmascut/icon.png"
   "defaultwidth": 268,
   "defaultheight": 443,
   "minwidth": 50,
