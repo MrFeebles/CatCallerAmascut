@@ -4382,6 +4382,8 @@ var FULL_M = [
 // ================================= DPS Mechanics =================================
 var CORE_M = [
     //Check-list / Debug Phrases
+    { trigger: /weapon poison/i,
+        response: { text: "Mod Ryan will not like this", color: "yellow" } },
     { trigger: /How close it came to becoming a reality/i,
         response: { text: "You have entered the cat cauldron", color: "yellow" } },
     { trigger: /Hazelmere's long lost signet ring./i, response: { text: "Arc blesses you with the drops of his family", color: "white" } },
